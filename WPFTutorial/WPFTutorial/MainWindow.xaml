@@ -5,8 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFTutorial"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="150" Width="450">
     <Grid>
-
+        <DockPanel LastChildFill="False">
+            <StackPanel Width="150" DockPanel.Dock="Top">
+                <TextBlock Text="Welcome Unkown"/>
+                <TextBox Text=""/>
+                <Button Content="Submit"/>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" DockPanel.Dock="Bottom">
+                <Button Content="Red"/>
+                <Button Content="Blue"/>
+                <Button Content="Yellow"/>
+            </StackPanel>
+        </DockPanel>
     </Grid>
 </Window>

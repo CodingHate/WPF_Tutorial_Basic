@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
+        <StackPanel>
+            <TextBox Text="{Binding MessageText, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"/>
+            <Button Content="Show Message" Command="{Binding DisplayMessageCommand}"/>
+        </StackPanel>
     </Grid>
 </Window>

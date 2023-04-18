@@ -6,17 +6,17 @@
         xmlns:local="clr-namespace:WPFTutorial"
         mc:Ignorable="d"
         Title="MainWindow" Height="150" Width="450">
-    <Grid>
+    <Grid Background="{Binding Background.Color}">
         <DockPanel LastChildFill="False">
             <StackPanel Width="150" DockPanel.Dock="Top">
-                <TextBlock Text="Welcome Unkown"/>
-                <TextBox Text=""/>
+                <TextBlock Text="{Binding Person.Name, StringFormat=Welcom {0}}"/>
+                <TextBox Text="{Binding Person.Name, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"/>
                 <Button Content="Submit"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" DockPanel.Dock="Bottom">
-                <Button Content="Red"/>
-                <Button Content="Blue"/>
-                <Button Content="Yellow"/>
+                <Button  x:Name="Red" Content="Red" Click="Red_Click"/>
+                <Button x:Name="Blue" Content="Blue" Click="Blue_Click"/>
+                <Button x:Name="Yellow" Content="Yellow" Click="Yellow_Click"/>
             </StackPanel>
         </DockPanel>
     </Grid>

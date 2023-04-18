@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPFTutorial.ViewModels;
 
 namespace WPFTutorial
 {
@@ -20,9 +21,26 @@ namespace WPFTutorial
     /// </summary>
     public partial class MainWindow : Window
     {
+        MainViewModel _main = new MainViewModel();
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = _main;
+        }
+
+        private void Red_Click(object sender, RoutedEventArgs e)
+        {
+            _main.SetBackground(Brushes.Red);
+        }
+
+        private void Blue_Click(object sender, RoutedEventArgs e)
+        {
+            _main.SetBackground(Brushes.Blue);
+        }
+
+        private void Yellow_Click(object sender, RoutedEventArgs e)
+        {
+            _main.SetBackground(Brushes.Yellow);
         }
     }
 }

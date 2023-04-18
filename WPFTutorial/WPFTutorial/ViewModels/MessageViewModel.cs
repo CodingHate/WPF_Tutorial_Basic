@@ -10,16 +10,16 @@ namespace WPFTutorial.ViewModels
 {
     class MessageViewModel
     {
-        public string MessageText { set; get; }
+        //public string MessageText { set; get; }
         public MessageCommand DisplayMessageCommand { private set; get; }
         public MessageViewModel()
         {
             DisplayMessageCommand = new MessageCommand(DisplayMessage);
         }
 
-        public void DisplayMessage()
+        public void DisplayMessage(string message)
         {
-            MessageBox.Show(MessageText);
+            MessageBox.Show(message);
         }
     }
 }

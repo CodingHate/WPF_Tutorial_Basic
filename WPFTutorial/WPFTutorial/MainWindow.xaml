@@ -8,8 +8,9 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <StackPanel>
-            <TextBox Text="{Binding MessageText, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"/>
-            <Button Content="Show Message" Command="{Binding DisplayMessageCommand}"/>
+            <!--<TextBox Text="{Binding MessageText, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"/>-->
+            <TextBox x:Name="messageBox"/>
+            <Button Content="Show Message" Command="{Binding DisplayMessageCommand}" CommandParameter="{Binding ElementName=messageBox, Path=Text}"/>
         </StackPanel>
     </Grid>
 </Window>

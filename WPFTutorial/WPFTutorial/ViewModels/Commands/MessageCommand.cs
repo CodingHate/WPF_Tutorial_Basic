@@ -5,10 +5,10 @@ namespace WPFTutorial.ViewModels.Commands
 {
     class MessageCommand : ICommand
     {
-        private Action _execute;
+        private Action<string> _execute;
         public event EventHandler CanExecuteChanged;
 
-        public MessageCommand(Action execute)
+        public MessageCommand(Action<string> execute)
         {
             _execute = execute;
         }
@@ -20,7 +20,7 @@ namespace WPFTutorial.ViewModels.Commands
 
         public void Execute(object parameter)
         {
-            _execute.Invoke();
+            _execute.Invoke(parameter as string);
         }
     }
 }

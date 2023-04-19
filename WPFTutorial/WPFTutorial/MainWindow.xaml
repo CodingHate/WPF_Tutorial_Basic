@@ -8,9 +8,10 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <StackPanel Width="500">
-            <ComboBox/>
-            <Button Content="Message Box"/>
-            <Button Content="Command Log"/>
+            <TextBlock Text="Message" HorizontalAlignment="Center"/>
+            <ComboBox x:Name="comboMessage" ItemsSource="{Binding MyMessage}"/>
+            <Button Command="{Binding MessageBoxCommand}" CommandParameter="{Binding ElementName=comboMessage, Path=SelectedItem}" Content="Message Box"/>
+            <Button Command="{Binding ConsoleLogCommand}"  CommandParameter="{Binding ElementName=comboMessage, Path=SelectedItem}"  Content="Command Log"/>
         </StackPanel>
     </Grid>
 </Window>

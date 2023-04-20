@@ -5,8 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFTutorial"
         mc:Ignorable="d"
+        xmlns:view="clr"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
+        <TabControl>
+            <TabItem Header="이름">
+                <TextBlock TextAlignment="Center" VerticalAlignment="Center" Text="이성계" FontSize="30" />
+            </TabItem>
+            <TabItem Header="출생년도">
+                <TextBlock TextAlignment="Center" VerticalAlignment="Center" Text="1392년" FontSize="30" />
+            </TabItem>
+            <TabItem Header="특기">
+                <!--<TextBlock TextAlignment="Center" VerticalAlignment="Center" Text="활쏘기" FontSize="30" />-->
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>

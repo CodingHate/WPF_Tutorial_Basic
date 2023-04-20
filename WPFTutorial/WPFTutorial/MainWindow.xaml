@@ -4,9 +4,21 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFTutorial"
+        xmlns:converter="clr-namespace:WPFTutorial.ViewModel"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
 
+    <Window.Resources>
+        <converter:TextConverter x:Key="textConverter"/>
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBox x:Name="masterBox" Grid.Row="0" FontSize="30"/>
+        <TextBox Grid.Row="1" FontSize="20" Text="{Binding ElementName=masterBox, Path=Text, Converter={StaticResource textConverter}}"/>
     </Grid>
 </Window>

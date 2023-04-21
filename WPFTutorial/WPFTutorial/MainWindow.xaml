@@ -6,7 +6,35 @@
         xmlns:local="clr-namespace:WPFTutorial"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <!--Base Button-->
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="Black"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+        
+        <!--Special Button-->
+        <Style TargetType="Button" x:Key="SpecialButton">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="black"/>
+        </Style>
+        
+        <!--Base On-->
+        <Style x:Key="ExtensedButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+            <Setter Property="FontSize" Value="24" />
+        </Style>
+        
+        <!--Base On Special-->
+        <Style x:Key="ExtensedSpecialButton" TargetType="Button" BasedOn="{StaticResource SpecialButton}">
+            <Setter Property="FontSize" Value="34" />
+        </Style>
+    </Window.Resources>
     <Grid>
-
+        <StackPanel Margin="50">
+            <Button Content="Button 01"/>
+            <Button Style="{StaticResource SpecialButton}" Content="Button 02"/>
+            <Button Style="{StaticResource ExtensedButton}" Content="Button 03"/>
+            <Button Style="{StaticResource ExtensedSpecialButton}" Content="Button 04"/>
+        </StackPanel>
     </Grid>
 </Window>

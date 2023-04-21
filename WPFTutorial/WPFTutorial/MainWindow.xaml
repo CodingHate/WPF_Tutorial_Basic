@@ -11,8 +11,8 @@
             <Label Content="Big Title"/>
             <Label Content="Full name"/>
             <TextBox Padding="20"/>
-            <Button Content="Submit"/>
-            <Button Content="Cancel"/>
+            <Button Style="{StaticResource SubmitButton}" Content="Submit"/>
+            <Button Style="{StaticResource CancelButton}" Content="Cancel"/>
         </StackPanel>
     </Grid>
 </Window>

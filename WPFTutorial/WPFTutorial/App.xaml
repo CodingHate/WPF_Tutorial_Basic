@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:WPFTutorial"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary Source="ResourceDictionaries/ButtonDictionary.xaml"/>
+        <ResourceDictionary Source="ResourceDictionaries/LabelDictionary.xaml"/>
     </Application.Resources>
 </Application>

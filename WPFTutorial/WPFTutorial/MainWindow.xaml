@@ -8,8 +8,8 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <StackPanel Margin="100">
-            <Label Content="Big Title"/>
-            <Label Content="Full name"/>
+            <Label Style="{StaticResource TitleLabel}" Content="Big Title" HorizontalAlignment="Center"/>
+            <Label Style="{StaticResource TextBoxLabel}" Content="Full name"/>
             <TextBox Padding="20"/>
             <Button Style="{StaticResource SubmitButton}" Content="Submit"/>
             <Button Style="{StaticResource CancelButton}" Content="Cancel"/>

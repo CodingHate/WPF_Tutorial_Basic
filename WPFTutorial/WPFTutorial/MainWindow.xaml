@@ -7,6 +7,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
+        <StackPanel Margin="100">
+            <Label Content="Big Title"/>
+            <Label Content="Full name"/>
+            <TextBox Padding="20"/>
+            <Button Content="Submit"/>
+            <Button Content="Cancel"/>
+        </StackPanel>
     </Grid>
 </Window>

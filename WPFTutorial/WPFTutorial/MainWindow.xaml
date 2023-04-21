@@ -12,18 +12,23 @@
             <Setter Property="Background" Value="Black"/>
             <Setter Property="Foreground" Value="White"/>
         </Style>
-        
+
         <!--Special Button-->
         <Style TargetType="Button" x:Key="SpecialButton">
             <Setter Property="Background" Value="White"/>
             <Setter Property="Foreground" Value="black"/>
         </Style>
-        
+
         <!--Base On-->
         <Style x:Key="ExtensedButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
             <Setter Property="FontSize" Value="24" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="FontSize" Value="10" />
+                </Trigger>
+            </Style.Triggers>
         </Style>
-        
+
         <!--Base On Special-->
         <Style x:Key="ExtensedSpecialButton" TargetType="Button" BasedOn="{StaticResource SpecialButton}">
             <Setter Property="FontSize" Value="34" />

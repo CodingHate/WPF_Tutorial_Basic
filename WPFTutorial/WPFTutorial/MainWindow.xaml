@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFTutorial"
         xmlns:ViewModel ="clr-namespace:WPFTutorial.ViewModel"
+        xmlns:BoolenConverter ="clr-namespace:WPFTutorial.Converters"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Window.DataContext>
-        <ViewModel:MainViewModel/>
-    </Window.DataContext>
+    <Window.Resources>
+        <BoolenConverter:BoolToVisibilityConverter x:Key="BoolToVisibility"/>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -24,11 +25,11 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Column="0" Grid.Row="0" Margin="5">
-            <CheckBox Content="Is Visible" IsChecked="{Binding IsVisible}"/>
+            <CheckBox x:Name="visibilityCheck" Content="Is Visible"/>
         </StackPanel>
 
         <StackPanel Grid.Column="1" Grid.Row="0" Margin="5">
-            <Button Content="I am Visible" Visibility="{Binding Visibility}"/>
+            <Button Content="I am Visible" Visibility="{Binding ElementName=visibilityCheck, Path=IsChecked, Converter={StaticResource BoolToVisibility}}"/>
         </StackPanel>
     </Grid>
 </Window>

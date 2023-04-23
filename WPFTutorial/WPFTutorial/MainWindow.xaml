@@ -4,9 +4,31 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFTutorial"
+        xmlns:ViewModel ="clr-namespace:WPFTutorial.ViewModel"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <ViewModel:MainViewModel/>
+    </Window.DataContext>
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" Grid.Row="0" Margin="5">
+            <CheckBox Content="Is Visible" IsChecked="{Binding IsVisible}"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="0" Margin="5">
+            <Button Content="I am Visible" Visibility="{Binding Visibility}"/>
+        </StackPanel>
     </Grid>
 </Window>

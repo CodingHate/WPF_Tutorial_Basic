@@ -5,11 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFTutorial"
         xmlns:ViewModel ="clr-namespace:WPFTutorial.ViewModel"
-        xmlns:BoolenConverter ="clr-namespace:WPFTutorial.Converters"
+        xmlns:Converter ="clr-namespace:WPFTutorial.Converters"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
-        <BoolenConverter:BoolToVisibilityConverter x:Key="BoolToVisibility"/>
+        <Converter:BoolToVisibilityConverter x:Key="BoolToVisibility"/>
+        <Converter:BoolToBrushConverter x:Key="StatusToBrush"/>
+        <Converter:BoolToStringConverter x:Key="BoolToString"/>
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -21,7 +23,6 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
-            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Column="0" Grid.Row="0" Margin="5">
@@ -30,6 +31,25 @@
 
         <StackPanel Grid.Column="1" Grid.Row="0" Margin="5">
             <Button Content="I am Visible" Visibility="{Binding ElementName=visibilityCheck, Path=IsChecked, Converter={StaticResource BoolToVisibility}}"/>
+        </StackPanel>
+
+        <!--Example 02-->
+        <StackPanel Grid.Row="1" Grid.Column="0" Margin="5">
+            <CheckBox x:Name="OnlineCheck" Content="Is Online"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Margin="5">
+            <Label Content="FroPattle13" Foreground="{Binding ElementName=OnlineCheck, Path=IsChecked, Converter={StaticResource StatusToBrush}}"/>
+        </StackPanel>
+        
+        <!--Example 03-->
+        <StackPanel Grid.Row="2" Grid.Column="0" Margin="5">
+            <CheckBox x:Name="newsCheck" Content="Signup fo Newsletter"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="1" Margin="5">
+            <Label Content="Sgine up for newsletter"/>
+            <TextBox Text="{Binding ElementName=newsCheck, Path=IsChecked, Converter={StaticResource BoolToString}}"/>
         </StackPanel>
     </Grid>
 </Window>

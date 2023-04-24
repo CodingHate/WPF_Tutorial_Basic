@@ -1,5 +1,7 @@
 # WPF_Tutorial
 
+https://www.youtube.com/@ToskersCorner</br>
+C# WPF Tutorials for Beginners</br>
 main</br>
 IValueConverter
 InotifyPropertyChanged

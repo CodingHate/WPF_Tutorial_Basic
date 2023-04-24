@@ -4,18 +4,18 @@ namespace WPFTutorial
 {
     class MainWindowViewModel: ObservableObject
     {
-        public ListViewViewModel ListView { get; set; }
+        public ListViewViewModel ListViewModel { get; set; }
         public ICommand RemoveNameCommand { get; set; }
 
         public MainWindowViewModel()
         {
-            ListView = new ListViewViewModel();
+            ListViewModel = new ListViewViewModel();
             RemoveNameCommand = new RelayCommand<string>(RemoveName);
         }
 
         private void RemoveName(string name)
         {
-            ListView.Names.Remove(name);
+            ListViewModel.Names.Remove(name);
         }
     }
 }

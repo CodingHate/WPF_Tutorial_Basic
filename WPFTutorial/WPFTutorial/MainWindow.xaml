@@ -15,18 +15,22 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="0" DataContext="{Binding ListView}">
-            <ListView x:Name="anemadf" ItemsSource="{Binding Names}">
+        <Grid Grid.Column="0">
+            <ListView x:Name="ListView01" DataContext="{Binding ListViewModel}" ItemsSource="{Binding Names}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
                             <TextBlock Text="{Binding}"/>
-                            <!--<Button Content="Remove" Command="{Binding DataContext.}"/>-->
+                            <Button Content=" Click Event 1 " Command="{Binding ElementName=ListView01, Path=DataContext.RemoveNameCommand}" CommandParameter="{Binding}"/>
                             <Button Content="Remove" Command="{Binding DataContext.RemoveNameCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid,AncestorLevel=2}}" CommandParameter="{Binding}"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
         </Grid>
+
+        <StackPanel Grid.Column="1" Margin="30" Background="Black">
+            <Button Content="click" Command="{Binding RemoveNameCommand}" Margin="40"/>
+        </StackPanel>
     </Grid>
 </Window>

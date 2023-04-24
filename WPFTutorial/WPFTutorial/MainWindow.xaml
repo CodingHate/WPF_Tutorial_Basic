@@ -15,22 +15,27 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="0">
+        <StackPanel>
             <ListView x:Name="ListView01" DataContext="{Binding ListViewModel}" ItemsSource="{Binding Names}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
                             <TextBlock Text="{Binding}"/>
-                            <Button Content=" Click Event 1 " Command="{Binding ElementName=ListView01, Path=DataContext.RemoveNameCommand}" CommandParameter="{Binding}"/>
-                            <Button Content="Remove" Command="{Binding DataContext.RemoveNameCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid,AncestorLevel=2}}" CommandParameter="{Binding}"/>
+
+                            <Button Content="Remove" Command="{Binding DataContext.RemoveNameCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=StackPanel, AncestorLevel=2}}" CommandParameter="{Binding}"/>
+
+                            <Button Content="Remove list" Command="{Binding DataContext.RemoveNameCommand02, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ListView}}}" CommandParameter="{Binding}" />
+
+                            <Button Content="Add list" Command="{Binding DataContext.AddNameCommand02, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ListView}}}" CommandParameter="{Binding}" />
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </Grid>
-
+        </StackPanel>
+        
+        
         <StackPanel Grid.Column="1" Margin="30" Background="Black">
-            <Button Content="click" Command="{Binding RemoveNameCommand}" Margin="40"/>
+            <Button Content="click" Command="{Binding RemoveNameCommand}" CommandParameter="Jane" Margin="40"/>
         </StackPanel>
     </Grid>
 </Window>

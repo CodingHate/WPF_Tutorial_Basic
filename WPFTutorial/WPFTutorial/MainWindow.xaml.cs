@@ -23,6 +23,7 @@ namespace WPFTutorial
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new MainViewModel();
         }
     }
 }

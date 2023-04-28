@@ -1,12 +1,5 @@
 # WPF_Tutorial
 
-https://www.youtube.com/@ToskersCorner</br>
-C# WPF Tutorials for Beginners</br>
-main</br>
-IValueConverter</br>
-InotifyPropertyChanged</br>
-Introduction</br>
-Relay_Delegate_Command</br>
-SingularCommands</br>
-Styles_Window_Resources</br>
-
+YouTube: 까불이코더</br>
+https://youtube.com/watch?v=2pkfi-d9HBk&feature=share</br>
+C# 기초강의</br>

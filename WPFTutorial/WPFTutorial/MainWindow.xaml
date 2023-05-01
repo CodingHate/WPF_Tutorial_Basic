@@ -32,13 +32,34 @@
                 Margin="10"
                 FontSize="30"
                 Content="Control Template 테스트"
-                Background="Yellow"
+                Background="Yellow" 
                 Style="{StaticResource btnStyle}">
         </Button>
 
         <ComboBox Grid.Row="1"
                   Margin="10"
                   FontSize="30"
-                  ItemsSource="{Binding Items}"/>
+                  ItemsSource="{Binding Items}">
+
+            <ComboBox.ItemContainerStyle>
+                <Style TargetType="{x:Type ComboBoxItem}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <TextBlock Text="{Binding Value}"
+                               Foreground="{Binding Brush}"/>
+                            </ControlTemplate>    
+                        </Setter.Value>
+                    </Setter>        
+                </Style>
+            </ComboBox.ItemContainerStyle>
+            
+            <!--<ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Value}"
+                               Foreground="{Binding Brush}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>-->
+        </ComboBox>
     </Grid>
 </Window>

@@ -59,7 +59,9 @@
 
         <!--<Button Grid.Column="1"  Content="{Binding MainList.StudentList[0].name}"/>-->
 
-        <Grid Grid.Row="1" Grid.Column="0" Background="Red"/>
+        <Grid Grid.Row="1" Grid.Column="0" Background="Red">
+            <Button Content="{Binding BtnName.SetButtonName}" Margin="50"/>
+        </Grid>
 
     </Grid>
 </Window> 

@@ -25,7 +25,6 @@ namespace WPFTutorial
         {
             InitializeComponent();
             DataContext = new MainViewModel();
-            //DataContext = new WPFTutorial.ViewModel.MainViewModels();
         }
 
 

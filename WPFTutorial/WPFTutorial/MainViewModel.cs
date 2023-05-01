@@ -4,17 +4,34 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WPFTutorial.ViewModel;
 
 namespace WPFTutorial
 {
-     class MainViewModel : INotifyPropertyChanged
+    class MainViewModel : INotifyPropertyChanged
     {
+
         private List<Student> students = default;
         public MainViewModel()
         {
+            _btnName = new ButtonName();
+            BtnName.SetButtonName = "??";
             students = Student.Students;
             mainViewModels = new ViewModel.MainViewModels();
         }
+
+        private ButtonName _btnName;
+
+        public ButtonName BtnName
+        {
+            set { _btnName = value; }
+            get
+            {
+                return _btnName;
+                OnPropertyChanged("BtnName");
+            }
+        }
+
 
         private ViewModel.MainViewModels mainViewModels;
 

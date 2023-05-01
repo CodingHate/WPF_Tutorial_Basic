@@ -6,7 +6,39 @@
         xmlns:local="clr-namespace:WPFTutorial"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <Style x:Key="btnStyle" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border BorderBrush="Blue"
+                        BorderThickness="5"
+                        CornerRadius="10"
+                        Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
 
+        <Button Grid.Row="0"
+                Margin="10"
+                FontSize="30"
+                Content="Control Template 테스트"
+                Background="Yellow"
+                Style="{StaticResource btnStyle}">
+        </Button>
+
+        <ComboBox Grid.Row="1"
+                  Margin="10"
+                  FontSize="30"
+                  ItemsSource="{Binding Items}"/>
     </Grid>
 </Window>

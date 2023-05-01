@@ -13,7 +13,21 @@ namespace WPFTutorial
         public MainViewModel()
         {
             students = Student.Students;
+            mainViewModels = new ViewModel.MainViewModels();
         }
+
+        private ViewModel.MainViewModels mainViewModels;
+
+        public ViewModel.MainViewModels MainList
+        {
+            set { mainViewModels = value; }
+            get
+            {
+                return mainViewModels;
+                OnPropertyChanged("MainList");
+            }
+        }
+
 
         public List<Student> Students
         {

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPFTutorial.ViewModel;
 
 namespace WPFTutorial
 {
@@ -24,6 +25,9 @@ namespace WPFTutorial
         {
             InitializeComponent();
             DataContext = new MainViewModel();
+            //DataContext = new WPFTutorial.ViewModel.MainViewModels();
         }
+
+
     }
 }

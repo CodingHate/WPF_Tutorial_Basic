@@ -30,14 +30,30 @@
         </DataTemplate>
     </Window.Resources>
     <Grid>
-        
-        <!--<ListBox ItemsSource="{Binding Students}" ItemTemplate="{StaticResource Man}">
-        </ListBox>-->
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
 
 
-        <ListBox ItemsSource="{Binding Students}"  
+        <ListBox Grid.Column="0" ItemsSource="{Binding Students}"  
                  ItemTemplateSelector="{StaticResource ItemSelector}">
         </ListBox>
+
+        
+        <DataGrid  Grid.Column="1" ItemsSource="{Binding
+             Mode=OneWay, Path=MainList.StudentList}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="이름" Binding="{Binding Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Path=name}" Width="130"/>
+                <DataGridTextColumn Header="학번" Binding="{Binding Path=id}" Width="130"/>
+                <DataGridTextColumn Header="학과" Binding="{Binding Path=major}" Width="180"/>
+                <DataGridTextColumn Header="학년" Binding="{Binding Path=grade}" Width="100"/>
+                <DataGridTextColumn Header="비고" Binding="{Binding Path=etc}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!--<Button Grid.Column="1"  Content="{Binding MainList.StudentList[0].name}"/>-->
 
     </Grid>
 </Window> 

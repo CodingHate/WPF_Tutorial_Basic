@@ -36,6 +36,10 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
 
         <ListBox Grid.Column="0" ItemsSource="{Binding Students}"  
                  ItemTemplateSelector="{StaticResource ItemSelector}">
@@ -43,9 +47,9 @@
 
         
         <DataGrid  Grid.Column="1" ItemsSource="{Binding
-             Mode=OneWay, Path=MainList.StudentList}">
+             Path=MainList.StudentList}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="이름" Binding="{Binding Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Path=name}" Width="130"/>
+                <DataGridTextColumn Header="이름" Binding="{Binding Path=name}" Width="130"/>
                 <DataGridTextColumn Header="학번" Binding="{Binding Path=id}" Width="130"/>
                 <DataGridTextColumn Header="학과" Binding="{Binding Path=major}" Width="180"/>
                 <DataGridTextColumn Header="학년" Binding="{Binding Path=grade}" Width="100"/>
@@ -54,6 +58,8 @@
         </DataGrid>
 
         <!--<Button Grid.Column="1"  Content="{Binding MainList.StudentList[0].name}"/>-->
+
+        <Grid Grid.Row="1" Grid.Column="0" Background="Red"/>
 
     </Grid>
 </Window> 

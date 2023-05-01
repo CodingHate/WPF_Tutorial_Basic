@@ -21,6 +21,14 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <ControlTemplate  
+            x:Key="comboItems" 
+            TargetType="{x:Type ComboBoxItem}">
+            <TextBlock Text="{Binding Value}"
+                               Foreground="{Binding Brush}"/>
+        </ControlTemplate>
+
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -40,8 +48,13 @@
                   Margin="10"
                   FontSize="30"
                   ItemsSource="{Binding Items}">
-
             <ComboBox.ItemContainerStyle>
+
+                <Style TargetType="{x:Type ComboBoxItem}">
+                    <Setter Property="Template" Value="{StaticResource comboItems}"/>
+                </Style>
+            </ComboBox.ItemContainerStyle>
+            <!--<ComboBox.ItemContainerStyle>
                 <Style TargetType="{x:Type ComboBoxItem}">
                     <Setter Property="Template">
                         <Setter.Value>
@@ -52,8 +65,8 @@
                         </Setter.Value>
                     </Setter>        
                 </Style>
-            </ComboBox.ItemContainerStyle>
-            
+            </ComboBox.ItemContainerStyle>-->
+
             <!--<ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Value}"

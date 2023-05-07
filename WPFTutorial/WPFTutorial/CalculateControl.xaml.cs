@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,25 +19,66 @@ namespace WPFTutorial
     /// <summary>
     /// CalculateControl.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class CalculateControl : UserControl
+    public partial class CalculateControl : UserControl, INotifyPropertyChanged
     {
         public CalculateControl()
         {
             InitializeComponent();
         }
-
-
-
-        public int Value1
+        void OnPropertyChanged(string propertyName)
         {
-            get { return (int)GetValue(Value1Property); }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public static readonly DependencyProperty Value1Property =
+            DependencyProperty.Register("Value1", typeof(decimal), typeof(CalculateControl), new PropertyMetadata(0m, new PropertyChangedCallback(OnValueChanged)));
+
+        public static readonly DependencyProperty Value2Property =
+            DependencyProperty.Register("Value2", typeof(decimal), typeof(CalculateControl), new PropertyMetadata(0m, new PropertyChangedCallback(OnValueChanged)));
+
+        public static readonly DependencyProperty OperatorProperty =
+           DependencyProperty.Register("Operator", typeof(string), typeof(CalculateControl), new PropertyMetadata(" ", new PropertyChangedCallback(OnValueChanged)));
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private static void OnValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            CalculateControl calculateControl = (CalculateControl)d;
+            calculateControl.OnPropertyChanged(nameof(Result));
+        }
+        public string Operator
+        {
+            get { return (string)GetValue(OperatorProperty); }
+            set { SetValue(OperatorProperty, value); }
+        }
+
+        public decimal Value1
+        {
+            get { return (decimal)GetValue(Value1Property); }
             set { SetValue(Value1Property, value); }
         }
 
-        // Using a DependencyProperty as the backing store for Value1.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty Value1Property =
-            DependencyProperty.Register("Value1", typeof(int), typeof(CalculateControl), new PropertyMetadata(0));
+        public decimal Value2
+        {
+            get { return (decimal)GetValue(Value2Property); }
+            set { SetValue(Value2Property, value); }
+        }
 
+        //public int Result
+        //{
+        //    get
+        //    {
+        //        return Value1 + Value2;
+        //    }
+        //}
 
+        public decimal Result => Operator switch
+        {
+            "+" => Value1 + Value2,
+            "-" => Value1 - Value2,
+            "*" => Value1 * Value2,
+            "/" => Value2 == 0 ? 0 : Math.Round(Value1 / Value2, 2),
+            _ => 0
+        };
     }
 }

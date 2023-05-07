@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <local:CalculateControl Value1="123"/>
+        <local:CalculateControl Value1="123" Value2="124" Operator="/"/>
     </Grid>
 </Window>

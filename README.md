@@ -1,12 +1,8 @@
 # WPF_Tutorial
 
-https://www.youtube.com/@ToskersCorner</br>
-C# WPF Tutorials for Beginners</br>
-main</br>
-IValueConverter</br>
-InotifyPropertyChanged</br>
-Introduction</br>
-Relay_Delegate_Command</br>
-SingularCommands</br>
-Styles_Window_Resources</br>
+youtube: https://www.youtube.com/watch?v=ZsO29yvxpSM&t=620s </br>
+dependency property 연습</br>
 
+usercontrol 사용하여 구성 </br>
+propdb를 사용하여 dependency 문장을 자동 생성 </br>
+usercontrol의 Name "root"를 지정하여 parameter 획득 </br>

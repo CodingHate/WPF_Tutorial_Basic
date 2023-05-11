@@ -31,15 +31,33 @@ namespace WPFTutorial
         }
 
         public static readonly DependencyProperty Value1Property =
-            DependencyProperty.Register("Value1", typeof(decimal), typeof(CalculateControl), new PropertyMetadata(0m, new PropertyChangedCallback(OnValueChanged)));
+            DependencyProperty.Register("Value1", typeof(decimal), typeof(CalculateControl), new PropertyMetadata(0m, OnValueChanged, CoerceLimitValue));
 
         public static readonly DependencyProperty Value2Property =
-            DependencyProperty.Register("Value2", typeof(decimal), typeof(CalculateControl), new PropertyMetadata(0m, new PropertyChangedCallback(OnValueChanged)));
+            DependencyProperty.Register("Value2", typeof(decimal), typeof(CalculateControl), new PropertyMetadata(0m, OnValueChanged, CoerceLimitValue));
 
         public static readonly DependencyProperty OperatorProperty =
-           DependencyProperty.Register("Operator", typeof(string), typeof(CalculateControl), new PropertyMetadata(" ", new PropertyChangedCallback(OnValueChanged)));
+           DependencyProperty.Register("Operator", typeof(string), typeof(CalculateControl), new PropertyMetadata("+", OnValueChanged));
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        private static object CoerceLimitValue(DependencyObject d, object baseValue)
+        {
+            decimal value = (decimal)baseValue;
+
+            if (value < -9999)
+            {
+                return -9999m;
+            }
+            else if (value > 9999)
+            {
+                return 9999m;
+            }
+            else
+            {
+                return value;
+            }
+        }
 
         private static void OnValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {

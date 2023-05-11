@@ -5,8 +5,33 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPFTutorial.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Background="Blue">
+             d:DesignHeight="450" d:DesignWidth="800" Background="SkyBlue">
+    <UserControl.Resources>
+                <DataTemplate x:Key="ButtonContentTemplate">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="70"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="Text1"/>
+                <TextBlock Grid.Row="1" Grid.Column="1" Text="Text2"/>
+            </Grid>
+        </DataTemplate>
+    </UserControl.Resources>
     <Grid>
-            
+        <!--ContentControl을 상속 받는 클래스의 ContentTemplate을 재정의 해줌
+        Content를 재정의하고 있으며, ContentControl을 상속 받는 Window나 Button이나 모두 같은 원리로 동작한다.(ContentControl을 상속 받는 모든 개체)
+        Button, ToggleButton, CheckBox, RadioButton 등에 모두 같은 DataTemplate이 적용된 것을 볼 수 있다.
+        실행 화면 (좌측부터 Button, ToggleButton, CheckBox, RadioButton - 같은 DataTemplate을 사용하고 있다.)-->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Button Margin="5"
+                ContentTemplate="{StaticResource ButtonContentTemplate}"/>
+            <ToggleButton Margin="5"
+                  ContentTemplate="{StaticResource ButtonContentTemplate}"/>
+            <CheckBox Margin="5"
+                  ContentTemplate="{StaticResource ButtonContentTemplate}"/>
+            <RadioButton Margin="5"
+                     ContentTemplate="{StaticResource ButtonContentTemplate}"/>
+        </StackPanel>
     </Grid>
 </UserControl>

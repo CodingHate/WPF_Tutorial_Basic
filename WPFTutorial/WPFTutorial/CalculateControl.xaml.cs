@@ -30,6 +30,11 @@ namespace WPFTutorial
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+        public Brush TextBoxForeground { get; set; } = Brushes.Black;
+        public Brush TextBoxBackground { get; set; } = Brushes.White;
+        public Brush UserControlBackground { get; set; } = Brushes.White;
+
         public static readonly DependencyProperty Value1Property =
             DependencyProperty.Register("Value1", typeof(decimal), typeof(CalculateControl), new PropertyMetadata(0m, OnValueChanged, CoerceLimitValue));
 
@@ -39,67 +44,31 @@ namespace WPFTutorial
         public static readonly DependencyProperty OperatorProperty =
            DependencyProperty.Register("Operator", typeof(string), typeof(CalculateControl), new PropertyMetadata("+", OnValueChanged), new ValidateValueCallback(IsValidOperator));
 
-        private static bool IsValidOperator(object value)
-        {
-            string oper = (string)value;
+        public static readonly DependencyProperty DesignModeProperty =
+            DependencyProperty.Register("DesignMode", typeof(DesignMode), typeof(CalculateControl), new PropertyMetadata(DesignMode.WHITE, OnDesignModeChanged));
 
-            return oper switch
-            {
-                "+" or "-" or "*" or "/" => true,
-                _ => false,
-            };
+        public string Operator
+        {
+            get { return (string)GetValue(OperatorProperty); }
+            set { SetValue(OperatorProperty, value); }
         }
 
+        public decimal Value1
+        {
+            get { return (decimal)GetValue(Value1Property); }
+            set { SetValue(Value1Property, value); }
+        }
 
-
+        public decimal Value2
+        {
+            get { return (decimal)GetValue(Value2Property); }
+            set { SetValue(Value2Property, value); }
+        }
         public DesignMode DesignMode
         {
             get { return (DesignMode)GetValue(DesignModeProperty); }
             set { SetValue(DesignModeProperty, value); }
         }
-
-        public Brush TextBoxForeground { get; set; } = Brushes.Black;
-        public Brush TextBoxBackground { get; set; } = Brushes.White;
-        public Brush UserControlBackground { get; set; } = Brushes.White;
-
-
-        public static readonly DependencyProperty DesignModeProperty =
-            DependencyProperty.Register("DesignMode", typeof(DesignMode), typeof(CalculateControl), new PropertyMetadata(DesignMode.WHITE, OnDesignModeChanged));
-
-        private void ChangeDesignMode(DesignMode designMode)
-        {
-            if(designMode == DesignMode.WHITE)
-            {
-                TextBoxForeground = Brushes.Black;
-                TextBoxBackground = Brushes.White;
-                UserControlBackground = Brushes.Black;
-            }
-            else
-            {
-                TextBoxForeground = Brushes.White;
-                TextBoxBackground = Brushes.DarkGray;
-                UserControlBackground = Brushes.Black;
-            }
-
-            OnPropertyChanged(nameof(TextBoxForeground));
-            OnPropertyChanged(nameof(TextBoxBackground));
-            OnPropertyChanged(nameof(UserControlBackground));
-        }
-
-        private static void OnDesignModeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            CalculateControl calculateControl = (CalculateControl)d;
-            if(e.NewValue != e.OldValue)
-            {
-                if(e.NewValue is DesignMode designMode)
-                {
-                    calculateControl.ChangeDesignMode(designMode);
-                }
-            }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
         private static object CoerceLimitValue(DependencyObject d, object baseValue)
         {
             decimal value = (decimal)baseValue;
@@ -118,36 +87,56 @@ namespace WPFTutorial
             }
         }
 
+        private static bool IsValidOperator(object value)
+        {
+            string oper = (string)value;
+
+            return oper switch
+            {
+                "+" or "-" or "*" or "/" => true,
+                _ => false,
+            };
+        }
+
+        private void ChangeDesignMode(DesignMode designMode)
+        {
+            if (designMode == DesignMode.WHITE)
+            {
+                TextBoxForeground = Brushes.Black;
+                TextBoxBackground = Brushes.White;
+                UserControlBackground = Brushes.Black;
+            }
+            else
+            {
+                TextBoxForeground = Brushes.White;
+                TextBoxBackground = Brushes.DarkGray;
+                UserControlBackground = Brushes.Black;
+            }
+
+            OnPropertyChanged(nameof(TextBoxForeground));
+            OnPropertyChanged(nameof(TextBoxBackground));
+            OnPropertyChanged(nameof(UserControlBackground));
+        }
+
+
+        private static void OnDesignModeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            CalculateControl calculateControl = (CalculateControl)d;
+            if(e.NewValue != e.OldValue)
+            {
+                if(e.NewValue is DesignMode designMode)
+                {
+                    calculateControl.ChangeDesignMode(designMode);
+                }
+            }
+        }
+ 
+
         private static void OnValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             CalculateControl calculateControl = (CalculateControl)d;
             calculateControl.OnPropertyChanged(nameof(Result));
         }
-        public string Operator
-        {
-            get { return (string)GetValue(OperatorProperty); }
-            set { SetValue(OperatorProperty, value); }
-        }
-
-        public decimal Value1
-        {
-            get { return (decimal)GetValue(Value1Property); }
-            set { SetValue(Value1Property, value); }
-        }
-
-        public decimal Value2
-        {
-            get { return (decimal)GetValue(Value2Property); }
-            set { SetValue(Value2Property, value); }
-        }
-
-        //public int Result
-        //{
-        //    get
-        //    {
-        //        return Value1 + Value2;
-        //    }
-        //}
 
         public decimal Result => Operator switch
         {

@@ -37,7 +37,18 @@ namespace WPFTutorial
             DependencyProperty.Register("Value2", typeof(decimal), typeof(CalculateControl), new PropertyMetadata(0m, OnValueChanged, CoerceLimitValue));
 
         public static readonly DependencyProperty OperatorProperty =
-           DependencyProperty.Register("Operator", typeof(string), typeof(CalculateControl), new PropertyMetadata("+", OnValueChanged));
+           DependencyProperty.Register("Operator", typeof(string), typeof(CalculateControl), new PropertyMetadata("+", OnValueChanged), new ValidateValueCallback(IsValidOperator));
+
+        private static bool IsValidOperator(object value)
+        {
+            string oper = (string)value;
+
+            return oper switch
+            {
+                "+" or "-" or "*" or "/" => true,
+                _ => false,
+            };
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

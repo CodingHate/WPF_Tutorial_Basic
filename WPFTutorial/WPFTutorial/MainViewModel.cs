@@ -16,19 +16,19 @@ namespace WPFTutorial
         public MainViewModel()
         {
             _value1 = 0;
-            Value2 = 0;
-            Operator = "+";
+            _value2 = 0;
+            _operator = "+";
 
             var timer = new DispatcherTimer() { Interval = TimeSpan.FromSeconds(1) };
             timer.Tick += (s, e) =>
             {
-                Value1 += 1;
+                Value11 += 1;
                 Value2 += 2;
             };
             timer.Start();
         }
 
-        public decimal Value1
+        public decimal Value11
         {
             get => _value1;
             set => SetProperty(ref _value1, value);

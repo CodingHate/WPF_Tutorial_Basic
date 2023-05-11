@@ -1,4 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using System;
+using System.Windows.Threading;
 
 namespace WPFTutorial
 {
@@ -13,27 +15,35 @@ namespace WPFTutorial
 
         public MainViewModel()
         {
-            _value1 = 123;
-            _value2 = 456;
-            _operator = "/";
+            _value1 = 0;
+            Value2 = 0;
+            Operator = "+";
+
+            var timer = new DispatcherTimer() { Interval = TimeSpan.FromSeconds(1) };
+            timer.Tick += (s, e) =>
+            {
+                Value1 += 1;
+                Value2 += 2;
+            };
+            timer.Start();
         }
 
         public decimal Value1
         {
-            set { _value1 = value; }
-            get { return _value1; }
+            get => _value1;
+            set => SetProperty(ref _value1, value);
         }
 
         public decimal Value2
         {
-            set { _value2 = value; }
-            get { return _value2; }
+            get => _value2;
+            set => SetProperty(ref _value2, value);
         }
 
         public string Operator
         {
-            set { _operator = value; }
-            get { return _operator; }
+            get => _operator;
+            set => SetProperty(ref _operator, value);
         }
     }
 }

@@ -50,6 +50,54 @@ namespace WPFTutorial
             };
         }
 
+
+
+        public DesignMode DesignMode
+        {
+            get { return (DesignMode)GetValue(DesignModeProperty); }
+            set { SetValue(DesignModeProperty, value); }
+        }
+
+        public Brush TextBoxForeground { get; set; } = Brushes.Black;
+        public Brush TextBoxBackground { get; set; } = Brushes.White;
+        public Brush UserControlBackground { get; set; } = Brushes.White;
+
+
+        public static readonly DependencyProperty DesignModeProperty =
+            DependencyProperty.Register("DesignMode", typeof(DesignMode), typeof(CalculateControl), new PropertyMetadata(DesignMode.WHITE, OnDesignModeChanged));
+
+        private void ChangeDesignMode(DesignMode designMode)
+        {
+            if(designMode == DesignMode.WHITE)
+            {
+                TextBoxForeground = Brushes.Black;
+                TextBoxBackground = Brushes.White;
+                UserControlBackground = Brushes.Black;
+            }
+            else
+            {
+                TextBoxForeground = Brushes.White;
+                TextBoxBackground = Brushes.DarkGray;
+                UserControlBackground = Brushes.Black;
+            }
+
+            OnPropertyChanged(nameof(TextBoxForeground));
+            OnPropertyChanged(nameof(TextBoxBackground));
+            OnPropertyChanged(nameof(UserControlBackground));
+        }
+
+        private static void OnDesignModeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            CalculateControl calculateControl = (CalculateControl)d;
+            if(e.NewValue != e.OldValue)
+            {
+                if(e.NewValue is DesignMode designMode)
+                {
+                    calculateControl.ChangeDesignMode(designMode);
+                }
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         private static object CoerceLimitValue(DependencyObject d, object baseValue)

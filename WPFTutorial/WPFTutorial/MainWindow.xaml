@@ -39,6 +39,14 @@
             </StackPanel>
         </DockPanel>
 
-        <ContentControl Grid.Row="0" Grid.RowSpan="5" Grid.Column="1" Grid.ColumnSpan="4" Content="{Binding}"/>
+        <!--<ContentControl Grid.Row="0" Grid.RowSpan="5" Grid.Column="1" Grid.ColumnSpan="4" Content="{Binding}"/>-->
+
+        <ContentControl Grid.Row="0" Grid.RowSpan="5" Grid.Column="1" Grid.ColumnSpan="4" >
+            <views:BlueView DataContext="{Binding}"/>
+        </ContentControl>
+
+        <!--<StackPanel Grid.Row="0" Grid.RowSpan="5" Grid.Column="1" Grid.ColumnSpan="4" >
+            <views:BlueView DataContext="{Binding}"/>
+        </StackPanel>-->
     </Grid>
 </Window>

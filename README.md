@@ -20,9 +20,12 @@ Name 속성은 XAML에서 개체에 고유한 이름을 부여하는 데 사용�
 
 **CalculatorContro.xaml** 에서 
 ```c#
-<Setter Property="Foreground" Value="{Binding ElementName=root, Path= TextBoxForeground}" /> 의 의미 파악이 어려웠었다.   
-의미는 다음과 같다.   
+<Setter Property="Foreground" Value="{Binding ElementName=root, Path= TextBoxForeground}" />
 ```
+의 의미는 다음과 같다.   
+**ElementName** 에서 **CalculatorControl.xaml** 의 지정을 하였고 그 안에 TextBoxForground를 연결하여 binding을 한 것이다.   
+**CalculateControl.xaml.cs** 안에 binding이 되어 있는 것을 확인 할 수 있다.   
+
 
 usercontrol 사용하여 구성 </br>
 propdb를 사용하여 dependency 문장을 자동 생성 </br>

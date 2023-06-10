@@ -18,6 +18,12 @@ Name 속성은 XAML에서 개체에 고유한 이름을 부여하는 데 사용�
 하지만 실제로는 원하는 이름을 사용할 수 있습니다.
 
 
+**CalculatorContro.xaml** 에서 
+```c#
+<Setter Property="Foreground" Value="{Binding ElementName=root, Path= TextBoxForeground}" /> 의 의미 파악이 어려웠었다.   
+의미는 다음과 같다.   
+```
+
 usercontrol 사용하여 구성 </br>
 propdb를 사용하여 dependency 문장을 자동 생성 </br>
 usercontrol의 Name "root"를 지정하여 parameter 획득 </br>

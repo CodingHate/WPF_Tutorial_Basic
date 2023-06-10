@@ -3,6 +3,12 @@
 youtube: https://www.youtube.com/watch?v=ZsO29yvxpSM&t=620s </br>
 dependency property 연습</br>
 
+
+**Data Binding** UI 요소의 속성 값을 다른 UI 요소나 데이터 소스와 바인딩 할 수 있습니다.   
+스타일과 템플릿 스타일과 템플릿을 사용하여 UI 요소의 모양과 동작을 쉽게 변경 할 수 있습니다.   
+상속: 상위 요소에서 정의된 속성 값을 하위 요소에서 사용 할 수 있습니다.   
+
+
 usercontrol 사용하여 구성 </br>
 propdb를 사용하여 dependency 문장을 자동 생성 </br>
 usercontrol의 Name "root"를 지정하여 parameter 획득 </br>

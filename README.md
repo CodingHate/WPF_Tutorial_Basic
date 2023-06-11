@@ -13,7 +13,7 @@ usercontrol 사용하여 구성 </br>
 propdb를 사용하여 dependency 문장을 자동 생성 </br>
 usercontrol의 Name "root"를 지정하여 parameter 획득 </br>
 
-## 예시 1
+## study 01
 ```c#
 public static readonly DependencyProperty Value1Property = </br>
             DependencyProperty.Register("Value1", typeof(decimal), typeof(CalculateControl), new PropertyMetadata(0m, OnValueChanged, CoerceLimitValue));
@@ -23,13 +23,53 @@ new PropertyMetadata(0m, OnValueChanged, CoerceLimitValue));</br>
 onValueChanged: 변경되었을 경우 수행 되는 함수 </br>
 CoerceLimitValue : 제한 되는 함수 </br>
 
-## 예시 2
+## study 02
 ```c#
  <local:CalculateControl Value1="{Binding Value11}" Value2="{Binding Value2}" Operator="{Binding Operator}" DesignMode="WHITE"/> </br>
 ```
 Value1: Usercontrol에서 만든 변수 </br>
 Value11: mvvm에서 만든 MainViewModel 변수 </br>
 
+## study 03
+**MainWindow.xaml.cs** 에서 DataContext 연결   
+```c#
+    public partial class MainWindow : Window
+    {
+        public MainWindow()
+        {
+            InitializeComponent();
+            DataContext = new MainViewModel();
+        }
+    }
+```
+**MainWindow.xaml** 에서 Binding으르 통하여 **MainViewModel** 의 파라미터 연결
+**MainWindow.xaml**
+```csharp
+    <Grid>
+        <local:CalculateControl Value1="{Binding Value1}" Value2="{Binding Value2}" Operator="{Binding Operator}" DesignMode="WHITE"/>
+    </Grid>
+```
+**MainViewModel.cs**
+```csharp
+        public decimal Value1
+        {
+            get => _value1;
+            set => SetProperty(ref _value1, value);
+        }
+
+        public decimal Value2
+        {
+            get => _value2;
+            set => SetProperty(ref _value2, value);
+        }
+
+        public string Operator
+        {
+            get => _operator;
+            set => SetProperty(ref _operator, value);
+        }
+```
+연결 하고, 자동으로 **CalculateControl.xaml.cs** 의존성 프로퍼티에 의하여 계산이 되어 출력이 된다.
 
 ## 이해 필요 부분
 ### 1. Name="root"

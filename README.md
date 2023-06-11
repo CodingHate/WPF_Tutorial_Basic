@@ -18,10 +18,19 @@ usercontrol의 Name "root"를 지정하여 parameter 획득 </br>
 public static readonly DependencyProperty Value1Property = </br>
             DependencyProperty.Register("Value1", typeof(decimal), typeof(CalculateControl), new PropertyMetadata(0m, OnValueChanged, CoerceLimitValue));
 ```
-new PropertyMetadata(0m, OnValueChanged, CoerceLimitValue));</br>
-0m : 초기 값 </br>
-onValueChanged: 변경되었을 경우 수행 되는 함수 </br>
-CoerceLimitValue : 제한 되는 함수 </br>
+new PropertyMetadata(0m, OnValueChanged, CoerceLimitValue));   
+0m : 초기 값   
+onValueChanged: 변경되었을 경우 수행 되는 함수   
+CoerceLimitValue : 제한 되는 함수   
+
+```csharp
+        public static readonly DependencyProperty DesignModeProperty =
+            DependencyProperty.Register("DesignMode", typeof(DesignMode), typeof(CalculateControl), new PropertyMetadata(DesignMode.WHITE, OnDesignModeChanged));
+```
+현재 Desiginmode의 초기 값이 현재 WHITE로 설정 되어 있다.   
+***만약*** **MainWindow.xaml** 의 초기 값을 WHITE로 설정을 하면 **OnDesignModeChanged** 이 실행이 안된다.   
+DependencyProperty는 값이 다를 때 이벤트 핸들러가 수행 하게 된다.   
+
 
 ## study 02
 ```c#
@@ -70,6 +79,9 @@ Value11: mvvm에서 만든 MainViewModel 변수 </br>
         }
 ```
 연결 하고, 자동으로 **CalculateControl.xaml.cs** 의존성 프로퍼티에 의하여 계산이 되어 출력이 된다.
+
+## study 04   
+
 
 ## 이해 필요 부분
 ### 1. Name="root"

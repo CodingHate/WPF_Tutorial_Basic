@@ -31,19 +31,20 @@ Value1: Usercontrol에서 만든 변수 </br>
 Value11: mvvm에서 만든 MainViewModel 변수 </br>
 
 
-## 이해 하기 어려운 부분 ##
-1. Name="root" 설명
-**Name="root"** 는 CalculateControl 컨트롤의 이름을 "root"로 지정하는 것을 의미합니다.   
-Name 속성은 XAML에서 개체에 고유한 이름을 부여하는 데 사용됩니다.   
+## 이해 필요 부분
+### 1. Name="root"
+**CalculateControl.xaml** 에서 **Name="root"** 는 CalculateControl 컨트롤의 이름을 "root"로 지정.
+Name 속성은 XAML에서 개체에 고유한 이름을 부여하여 사용.
 이름은 해당 컨트롤을 식별하고 다른 요소와 상호작용하는 데 사용될 수 있습니다.   
+
 예를 들어 코드 뒷단에서 해당 컨트롤에 접근하거나 데이터 바인딩을 설정할 때 해당 이름을 사용할 수 있습니다.   
 여기서 "root"는 컨트롤의 이름으로 선택된 것이며, 다른 이름을 선택할 수도 있습니다.   
 일반적으로 "root"는 최상위 컨트롤이나 주 컨테이너 요소에 할당되는 이름으로 자주 사용됩니다.  
 하지만 실제로는 원하는 이름을 사용할 수 있습니다.
 
 
-2. Binding\
-**CalculatorContro.xaml** 에서 
+### 2. Binding
+**CalculateControl.xaml** 에서 
 ```c#
 <Setter Property="Foreground" Value="{Binding ElementName=root, Path= TextBoxForeground}" />
 ```

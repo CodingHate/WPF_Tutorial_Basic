@@ -45,7 +45,7 @@ namespace WPFTutorial
            DependencyProperty.Register("Operator", typeof(string), typeof(CalculateControl), new PropertyMetadata("+", OnValueChanged), new ValidateValueCallback(IsValidOperator));
 
         public static readonly DependencyProperty DesignModeProperty =
-            DependencyProperty.Register("DesignMode", typeof(DesignMode), typeof(CalculateControl), new PropertyMetadata(DesignMode.WHITE, OnDesignModeChanged));
+            DependencyProperty.Register("DesignMode", typeof(DesignMode), typeof(CalculateControl), new PropertyMetadata(DesignMode.DARK, OnDesignModeChanged));
 
         public string Operator
         {

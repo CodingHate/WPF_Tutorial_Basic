@@ -33,6 +33,19 @@ Value11: mvvm에서 만든 MainViewModel 변수 </br>
 
 ## 이해 필요 부분
 ### 1. Name="root"
+```c#
+<UserControl x:Class="WPFTutorial.CalculateControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPFTutorial"
+             mc:Ignorable="d" 
+             Name="root"
+             d:DesignHeight="450" d:DesignWidth="800" 
+             Background="{Binding ElementName=root, Path=UserControlBackground}"
+             d:Background="White">
+```
 **CalculateControl.xaml** 에서 **Name="root"** 는 CalculateControl 컨트롤의 이름을 "root"로 지정.
 Name 속성은 XAML에서 개체에 고유한 이름을 부여하여 사용.
 이름은 해당 컨트롤을 식별하고 다른 요소와 상호작용하는 데 사용될 수 있습니다.   

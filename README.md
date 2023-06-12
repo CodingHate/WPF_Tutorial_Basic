@@ -5,4 +5,4 @@ C# WPF Tutorials for Beginners</br>
 
 
 ### RelativeSource
-[RelativeSource] https://github.com/CodingHate/WPF_Tutorial_Basic/tree/RelativeSource_XAML_Debugging
+[RelativeSource_XAML_Debugging] https://github.com/CodingHate/WPF_Tutorial_Basic/tree/RelativeSource_XAML_Debugging

@@ -1,8 +1,11 @@
 # WPF_Tutorial
 
-https://www.youtube.com/@ToskersCorner</br>
-C# WPF Tutorials for Beginners</br>
+### RelativeSource_XAML_Debugging
+https://github.com/CodingHate/WPF_Tutorial_Basic/tree/RelativeSource_XAML_Debugging
+
+### DependencyProperty
+https://github.com/CodingHate/WPF_Tutorial_Basic/tree/DependencyProperty
 
 
-### RelativeSource
-[RelativeSource_XAML_Debugging] https://github.com/CodingHate/WPF_Tutorial_Basic/tree/RelativeSource_XAML_Debugging
+#### Reference site
+https://www.youtube.com/@ToskersCorner

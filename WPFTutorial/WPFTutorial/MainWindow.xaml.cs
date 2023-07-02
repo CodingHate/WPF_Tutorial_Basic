@@ -22,5 +22,10 @@ namespace WPFTutorial
         {
             DataContext = new BlueViewModel();
         }
+
+        private void Default_Clicked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

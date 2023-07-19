@@ -8,6 +8,6 @@ namespace WPFTutorial
 {
      public enum DesignMode
     {
-        WHITE, DARK
+        WHITE, DARK, Defaul
     }
 }

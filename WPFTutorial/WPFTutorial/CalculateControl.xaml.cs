@@ -45,7 +45,7 @@ namespace WPFTutorial
            DependencyProperty.Register("Operator", typeof(string), typeof(CalculateControl), new PropertyMetadata("+", OnValueChanged), new ValidateValueCallback(IsValidOperator));
 
         public static readonly DependencyProperty DesignModeProperty =
-            DependencyProperty.Register("DesignMode", typeof(DesignMode), typeof(CalculateControl), new PropertyMetadata(DesignMode.DARK, OnDesignModeChanged));
+            DependencyProperty.Register("DesignMode", typeof(DesignMode), typeof(CalculateControl), new PropertyMetadata(DesignMode.Defaul, OnDesignModeChanged));
 
         public string Operator
         {
@@ -104,7 +104,7 @@ namespace WPFTutorial
             {
                 TextBoxForeground = Brushes.Black;
                 TextBoxBackground = Brushes.White;
-                UserControlBackground = Brushes.Black;
+                UserControlBackground = Brushes.White;
             }
             else
             {
@@ -122,7 +122,7 @@ namespace WPFTutorial
         private static void OnDesignModeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             CalculateControl calculateControl = (CalculateControl)d;
-            if(e.NewValue != e.OldValue)
+            //if(e.NewValue != e.OldValue)
             {
                 if(e.NewValue is DesignMode designMode)
                 {

@@ -13,17 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WPFTutorial
+namespace WPFTutorial.Controls
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// MainControl.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainControl : UserControl
     {
-        public MainWindow()
+        public MainControl()
         {
             InitializeComponent();
-            DataContext = new MainViewModel();
         }
     }
 }

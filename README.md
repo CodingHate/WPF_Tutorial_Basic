@@ -1,12 +1,2 @@
-# WPF_Tutorial
-
-https://www.youtube.com/@ToskersCorner</br>
-C# WPF Tutorials for Beginners</br>
-main</br>
-IValueConverter</br>
-InotifyPropertyChanged</br>
-Introduction</br>
-Relay_Delegate_Command</br>
-SingularCommands</br>
-Styles_Window_Resources</br>
-
+## WPF 중첩된 사용자정의 컨트롤에서 내부 컨트롤 속성에 바인딩하려면?   
+[참고사이트] https://www.youtube.com/watch?v=OaCZxfMDnfM   

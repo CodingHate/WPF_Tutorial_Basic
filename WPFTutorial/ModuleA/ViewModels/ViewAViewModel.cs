@@ -32,6 +32,7 @@ namespace ModuleA.ViewModels
 
         public bool IsNavigationTarget(NavigationContext navigationContext)
         {
+            // false면 Navigation이 수행 되지 않는다.
             return true;
         }
 

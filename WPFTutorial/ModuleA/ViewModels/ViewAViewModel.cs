@@ -1,4 +1,5 @@
 ﻿using Prism.Commands;
+using Prism.Events;
 using Prism.Mvvm;
 using Prism.Regions;
 using System;
@@ -19,15 +20,14 @@ namespace ModuleA.ViewModels
             set { SetProperty(ref _message, value); }
         }
 
-        public ViewAViewModel()
+        public ViewAViewModel(IEventAggregator eventAggregator)
         {
             Message = "View A from your Prism Module";
         }
 
         public void OnNavigatedTo(NavigationContext navigationContext)
         {
-            // INavigationAware 을 통하여 직전에 무엇을 수행 하였는지 알 수 있다. (선행)
-            Message += navigationContext.Parameters.GetValue<int>("id");
+            // INavigationAware 을 통하여 직전에 무엇을 수행 하였는지 알 수 있다. (후생)
         }
 
         public bool IsNavigationTarget(NavigationContext navigationContext)
@@ -37,7 +37,9 @@ namespace ModuleA.ViewModels
 
         public void OnNavigatedFrom(NavigationContext navigationContext)
         {
-            // 후행
+            // INavigationAware 을 통하여 직전에 무엇을 수행 하였는지 알 수 있다. (선행)
+            Message += navigationContext.Parameters.GetValue<int>("id");
+
         }
     }
 }

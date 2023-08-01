@@ -64,7 +64,7 @@ namespace dRAST3Test.ViewModels
             // Navigation에 parameter를 전달 할 수있다.
             _regionManager.RequestNavigate("ContentRegion", viewName, p);
 
-            _eventAggregator.GetEvent<MessageEvent>().Publish($"Navigated to {viewName}"); // usercontrol에 message 전달
+            _eventAggregator.GetEvent<MessageEvent>().Publish($"Event Navigated to {viewName}"); // usercontrol에 message 전달
         }
 
     }

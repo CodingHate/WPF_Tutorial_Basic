@@ -29,9 +29,9 @@ namespace dRAST3Test.ViewModels
             } // SetProperty는 자동으로 Prism에서 InotifyPropertyChanged로 수행
         }
 
-        private DelegateCommand<string> _navigateCommand;
-        private readonly IRegionManager _regionManager;
-        private readonly IEventAggregator _eventAggregator;
+        private DelegateCommand<string> _navigateCommand;   // ICommand
+        private readonly IRegionManager _regionManager;     // region 설정
+        private readonly IEventAggregator _eventAggregator; // event 설정
 
         // ICommand의 이름과 맞춰야 한다. "NavigateCommand" (단축어: cmdg)
         // 단축어 
